@@ -1,0 +1,215 @@
+Backend Engineering — Lesson 01
+
+What is a Backend, How Does It Work, and Why Do We Need It?
+আজ থেকে আমাদের Backend Engineering journey-টা শুরু হবে একদম fundamentals থেকে।
+আমাদের একটা গুরুত্বপূর্ণ principle থাকবে:
+
+আমরা কোনো Programming Language শিখছি না, আমরা শিখছি কীভাবে Software Systems কাজ করে।
+Python, Java, C#, Go, PHP — এগুলো হচ্ছে কোনো concept implement করার tools। কিন্তু একজন Software Engineer হিসেবে আমাদের জানতে হবে, এই tools ব্যবহার করে আসলে কোন problem solve করছি, কেন করছি এবং system-এর ভেতরে কীভাবে কাজগুলো হচ্ছে।
+
+আজকের topic-টা আমরা কয়েকটি ছোট ছোট অংশে ভাগ করব।
+1. What is a Backend?
+2. What is a Frontend?
+3. Why do we need a Backend?
+4. How does a Backend actually work?
+5. Client, Server and Database — their relationship
+
+====>>>>
+01. What is a Backend?
+ধরো, তুমি একটা online pharmacy website-এ প্রবেশ করলে। সেখানে তুমি:
+- বিভিন্ন medicine দেখতে পাচ্ছ।
+- Product search করতে পারছ।
+- নিজের cart-এ medicine যোগ করতে পারছ।
+- Order place করতে পারছ।
+- নিজের previous orders দেখতে পারছ।
+এখন প্রশ্ন হচ্ছে, এই কাজগুলো আসলে কীভাবে হচ্ছে?
+
+তুমি যখন একটা medicine-এর নাম লিখে Search button-এ click করো, তখন website কীভাবে বুঝছে কোন medicine তোমাকে দেখাতে হবে?
+
+যখন তুমি Order Place করছ, তখন system কীভাবে বুঝছে:
+- এই order কোন customer-এর?
+- কোন product কত quantity নিতে চাচ্ছে?
+- Product-এর stock আছে কি না?
+- Product-এর price কত?
+- Order successfully create হয়েছে কি না?
+এই কাজগুলো শুধু website-এর design দিয়ে সম্ভব নয়।
+
+এগুলোর পেছনে কিছু software logic, business rules, data processing এবং storage mechanism কাজ করছে।
+
+এই পুরো system-এর যে অংশটি application-এর data, logic, rules এবং operations পরিচালনা করে, সেটিই Backend।
+
+আরও technically বললে:
+Backend is the server-side part of a software application responsible for processing requests, executing business logic, managing data, enforcing rules, and communicating with other systems.
+
+একটা গুরুত্বপূর্ণ বিষয়: Backend মানেই শুধু Database নয়। Database হচ্ছে Backend system-এর একটি অংশ বা dependency।
+
+
+====>>>>
+02. Frontend vs Backend
+একটা Restaurant-এ সাধারণত দুই ধরনের কাজ হয়:
+
+Front of House:
+- Customer বসে খাবার order করে।
+- Menu দেখে।
+- Waiter-এর সঙ্গে communicate করে।
+- Bill দেখতে পায়।
+Back of House:
+- Chef খাবার তৈরি করে।
+- Kitchen staff ingredients manage করে।
+- Inventory check করে।
+- Order অনুযায়ী খাবার প্রস্তুত করে।
+
+মনে রাখবে, Frontend এবং Backend আলাদা responsibility হলেও তারা একসঙ্গে একটি application তৈরি করে।
+
+
+
+====>>>>
+03. Why Do We Need a Backend?
+এখন সবচেয়ে গুরুত্বপূর্ণ প্রশ্ন।
+
+ধরো, আমরা একটা website তৈরি করলাম যেখানে HTML, CSS এবং JavaScript দিয়ে সবকিছু সুন্দরভাবে সাজানো আছে।
+
+কিন্তু কোনো Backend নেই।
+
+তাহলে কী হবে?
+- User website দেখতে পারবে।
+- কিছু buttons click করতে পারবে।
+- কিছু animations দেখতে পারবে।
+- কিন্তু user-এর account securely manage করা যাবে না।
+- Permanent product information store করা যাবে না।
+- কে কোন order করেছে তা reliably track করা যাবে না।
+- Stock management করা যাবে না।
+- Different users-এর private information আলাদা রাখা যাবে না।
+অর্থাৎ, একটা সুন্দর website তৈরি করা সম্ভব, কিন্তু একটা complete dynamic business application তৈরি করতে Backend-এর প্রয়োজন হবে।
+
+Backend আমাদের কী কী problem solve করে?
+1. Data Management:
+User, Product, Order, Payment, Inventory — application-এর প্রয়োজনীয় data store, retrieve, update এবং delete করা।
+
+2. Business Logic:
+Business-এর নিয়ম অনুযায়ী কাজ করা। যেমন: stock না থাকলে order করা যাবে না, discount থাকলে সঠিক price calculate করতে হবে।
+
+3. Security & Authorization: 
+কে login করেছে, কে কোন resource access করতে পারবে এবং কোন operation করার permission আছে তা নিশ্চিত করা।
+
+4. Process Automation:
+Order confirmation, email notifications, payment processing, inventory updates ইত্যাদি automate করা।
+
+5. System Integration
+Payment gateway, SMS service, delivery provider, third-party APIs ইত্যাদির সঙ্গে communicate করা।
+
+6. Reliability & Scalability
+অনেক user একসঙ্গে application ব্যবহার করলেও system যেন সঠিকভাবে কাজ করতে পারে, সেই ব্যবস্থা তৈরি করা।
+
+একটা বিষয় মনে রাখবে: Backend শুধু data save করার জন্য নয়। Backend মূলত একটা business 
+বা application-এর operational brain হিসেবে কাজ করে।
+
+
+====>>>>
+04. How Does a Backend Actually Work?
+এবার আমরা Backend-এর সবচেয়ে fundamental concept বুঝব।
+
+এটার নাম:
+
+Client-Server Architecture
+
+প্রথমে দুটি শব্দ বুঝি।
+
+Client: যে device বা software কোনো service বা resource পাওয়ার জন্য request পাঠায়।
+
+উদাহরণ:
+- Chrome Browser
+- Mobile Application
+- Desktop Application
+- অন্য কোনো Server
+Server: যে system client-এর request গ্রহণ করে এবং প্রয়োজনীয় processing করে response দেয়।
+
+এখানে একটা গুরুত্বপূর্ণ বিষয়: Server শুধু একটি computer নয়। এটি একটি physical বা virtual machine হতে পারে, যেখানে server software এবং application চালু থাকে।
+Request-Response Lifecycle
+ধরো, তুমি OneMed application-এ একটা medicine দেখতে চাও।
+
+
+A complete request lifecycle
+1. Client sends request
+   
+   User product page-এ click করল। Browser বা mobile app server-এর কাছে product information চাইল।
+   GET /products/101
+2. Server receives request
+   
+   Server incoming request গ্রহণ করল এবং কোন application/resource-এর জন্য request এসেছে তা identify করল।
+3. Application processes request
+   
+   Application check করল product ID valid কি না, user-এর access দরকার কি না এবং কোন operation execute করতে হবে।
+4. Database interaction
+   
+   Application database থেকে product-এর তথ্য retrieve করল।
+5. Business logic executes
+   
+   Retrieved data process করা হলো। যেমন: product active কি না, display করা যাবে কি না।
+6. Server sends response
+   
+   Application client-এর কাছে processed result পাঠাল।
+   200 OK
+7. Client displays result
+   
+   Browser response-এর data ব্যবহার করে product information screen-এ দেখাল।
+
+
+এখানে একটা গুরুত্বপূর্ণ distinction:
+
+Client সরাসরি database-এর সঙ্গে communicate করে না (সাধারণ web application architecture-এ)। Client application server-এর সঙ্গে communicate করে। 
+Application server প্রয়োজন অনুযায়ী database access করে।
+
+এই request-response pattern-টাই modern web application-এর মূল ভিত্তি।
+
+
+
+
+====>>>>
+05. Real-World Example: OneMed Order Placement
+এবার একটু challenging example দেখি।
+
+ধরো, একজন customer OneMed থেকে ২টি medicine order করতে চায়।
+
+Customer যখন Place Order button-এ click করে, তখন Backend-এ কী কী হতে পারে?
+
+প্রথমে একটা business scenario:
+- Customer ID: 501
+- Product ID: 101
+- Quantity: 2
+- Unit Price: ৳15
+- Delivery Charge: ৳60
+কিন্তু Backend সরাসরি frontend-এর দেওয়া price বিশ্বাস করবে না।
+
+কেন?
+
+কারণ একজন malicious user browser-এর মাধ্যমে request modify করে price ৳15 থেকে ৳1 করে দিতে পারে।
+
+তাই Backend নিজেই database থেকে current price retrieve করবে।
+Backend processing
+
+Order placement workflow
+1. Receive order request
+   
+   Customer-এর order data গ্রহণ।
+2. Authenticate customer
+   
+   Request পাঠানো user কে তা verify করা।
+3. Validate request
+   
+   Product ID, quantity এবং required information সঠিক কি না check করা।
+4. Check product availability
+   
+   Product active এবং available stock আছে কি না check করা।
+5. Calculate price
+   
+   Database থেকে price নিয়ে subtotal, delivery charge এবং discount calculate করা।
+6. Create order
+   
+   Order এবং order items database-এ save করা।
+7. Update inventory
+   
+   Stock reservation বা inventory adjustment করা।
+8. Return response
+   
+   Customer-কে order confirmation এবং order ID পাঠানো।
