@@ -1,0 +1,20 @@
+                                    ```Lesson 01: What is Computer Networking?
+
+প্রথমে একটি বাস্তব সমস্যা চিন্তা করি
+ধরো, তুমি OneMed-এর মতো একটি online pharmacy platform তৈরি করেছ।
+
+তোমার system-এ রয়েছে:
+- একটি frontend application।
+- একটি backend application।
+- একটি PostgreSQL database।
+- একটি image/file storage system।
+- একটি payment gateway।
+- একজন user, যিনি নিজের computer বা mobile থেকে application ব্যবহার করছেন।
+
+এখন একজন user তোমার website-এ গিয়ে একটি medicine search করল।
+
+কিন্তু একটা প্রশ্ন: User-এর browser কীভাবে তোমার backend-এর সঙ্গে যোগাযোগ করে???
+Browser কীভাবে জানে backend কোথায় আছে? কীভাবে data পাঠায়? কীভাবে backend সেই request গ্রহণ করে? 
+কীভাবে backend database থেকে data নিয়ে আবার browser-এ পাঠায়?
+
+এই পুরো communication-এর পেছনে কাজ করে Computer Networking...!!!

@@ -1,0 +1,55 @@
+Our Learning Roadmap
+Basic → Intermediate → Advanced → Production Engineering
+
+
+1. Networking Fundamentals
+Network কী, কেন প্রয়োজন, Network Types, Client-Server Architecture, Network Topology, Communication Models.
+
+2. Network Models & Architecture
+OSI Model, TCP/IP Model, Encapsulation, Decapsulation, Protocol Architecture.
+
+3. IP Addressing & Subnetting
+IPv4, IPv6, Binary, Public/Private IP, Subnet Mask, CIDR, Gateway.
+
+4. MAC Address, ARP & Ethernet
+NIC, MAC Address, ARP, Ethernet Frames, Switching, Broadcast Domains.
+
+5. Routing & Network Layer
+Routers, Routing Tables, Static/Dynamic Routing, NAT, PAT, TTL.
+
+6. Transport Layer
+TCP, UDP, Three-Way Handshake, Connection Termination, Ports, Sockets, Reliability, Flow Control, Congestion Control.
+
+7. DNS & Name Resolution
+Domain Names, DNS Records, Recursive Resolver, Authoritative DNS, Caching, DNS Propagation.
+
+8. HTTP & HTTPS
+HTTP/1.1, HTTP/2, HTTP/3, Request/Response, Headers, Methods, Status Codes, TLS, Certificates.
+
+9. Backend Communication
+REST, WebSocket, SSE, gRPC, RPC, Webhooks, API Communication.
+
+10. Network Security
+TLS, Encryption, Authentication, Firewall, Reverse Proxy, CORS, CSRF, DDoS, Rate Limiting.
+
+11. Infrastructure & Deployment Networking
+Load Balancers, CDN, Proxy, Docker Networking, Container Communication, VPC, Cloud Networking.
+
+12. Advanced Networking & Troubleshooting
+Connection Pooling, Keep-Alive, Latency, Bandwidth, Packet Loss, MTU, Wireshark, tcpdump, Network Debugging.
+
+এটি আমাদের মূল roadmap। প্রতিটি module-এর ভেতরে আরও ছোট ছোট topic থাকবে।
+
+
+আমাদের শেখার পদ্ধতি
+প্রতিটি topic-এ আমরা এই ধাপগুলো অনুসরণ করব:
+1. Concept: বিষয়টি আসলে কী?
+2. Why: কেন এটি তৈরি করা হয়েছিল?
+3. How: ভিতরে কীভাবে কাজ করে?
+4. Architecture: পুরো system-এর কোন জায়গায় এটি থাকে?
+5. Real-world example: বাস্তবে কীভাবে ব্যবহার হয়?
+6. Backend connection: Backend development-এ এর ভূমিকা কী?
+7. Common mistakes: Developers কোথায় ভুল করে?
+8. Practical experiment: নিজে পরীক্ষা করে দেখা।
+9. Knowledge check: তোমার understanding যাচাই।
+
