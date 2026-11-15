@@ -18,3 +18,149 @@ Browser কীভাবে জানে backend কোথায় আছে? ক�
 কীভাবে backend database থেকে data নিয়ে আবার browser-এ পাঠায়?
 
 এই পুরো communication-এর পেছনে কাজ করে Computer Networking...!!!
+
+Computer Network কী?
+সহজ ভাষায়:
+```Computer Network হলো একাধিক independent computing device-এর মধ্যে একটি communication system, 
+যার মাধ্যমে তারা নির্দিষ্ট rules বা protocols অনুসরণ করে data আদান-প্রদান এবং resources share করতে পারে।```
+
+এখানে কয়েকটি গুরুত্বপূর্ণ বিষয় আছে।
+Computing Device = Computer, Server, Mobile, Router
+Connection = Device-গুলোর মধ্যে যোগাযোগের ব্যবস্থা
+Data Exchange = তথ্য আদান-প্রদান
+Protocol = Communication-এর নির্দিষ্ট নিয়ম
+Resource Sharing = File, Printer, Database, Services share করা
+
+একটি গুরুত্বপূর্ণ বিষয়: Network communication-এর জন্য সবসময় physical cable প্রয়োজন হয় না। 
+Wired এবং wireless—দুইভাবেই network তৈরি হতে পারে।
+
+
+Why do we need Networking?
+Networking না থাকলে প্রতিটি computer অনেকটা বিচ্ছিন্নভাবে কাজ করত।
+Networking আমাদের প্রধানত পাঁচটি সুবিধা দেয়:
+
+A. Communication : একটি device অন্য device-এ message বা data পাঠাতে পারে।
+B. Resource Sharing: একাধিক computer একই printer, file storage বা server ব্যবহার করতে পারে।
+C. Centralized Data Management: একটি centralized database-এ অনেক application বা user access করতে পারে।
+D. Distributed Computing: একটি বড় application-এর কাজ একাধিক server বা service-এর মধ্যে ভাগ করে দেওয়া যায়।
+E. Scalability: User বাড়লে একাধিক server যুক্ত করে system-এর capacity বাড়ানো যায়।
+
+Backend engineering-এর ক্ষেত্রে শেষের তিনটি বিশেষভাবে গুরুত্বপূর্ণ।
+
+Network-এর সবচেয়ে গুরুত্বপূর্ণ Architecture: Client-Server Model
+এটি আমাদের Backend Engineering-এর অন্যতম foundational concept।
+ImageLink-01 : https://x.com/e_opore/status/1989559503101046825/photo/2
+
+এখানে দুটি প্রধান participant রয়েছে:
+
+Client: যে application বা device কোনো service বা resource চায়।
+
+উদাহরণ:
+- Web Browser
+- Mobile Application
+- Desktop Application
+- অন্য কোনো Backend Service
+
+Server: যে system client-এর request গ্রহণ করে এবং প্রয়োজনীয় service বা resource প্রদান করে।
+
+উদাহরণ:
+- Web Server
+- Application Server
+- Database Server
+- File Server
+
+
+একটি বাস্তব উদাহরণ
+ধরো, একজন user OneMed-এ login করতে চায়।
+
+Communication flow:
+
+1. Client
+Browser / Mobile App
+Login credentials পাঠায়
+
+        |
+        V
+
+2. Backend Server
+Request গ্রহণ ও authentication logic execute
+
+        |
+        V
+
+3. Database Server
+User information retrieve
+
+        ^
+        |
+
+4. Backend Response
+Credentials যাচাই করে result তৈরি
+
+        ^
+        |
+
+5. Client Receives Response
+Login success অথবা failure
+
+
+মনে রাখবে, এটি একটি simplified logical flow। বাস্তবে DNS lookup, TCP connection, TLS handshake, HTTP request/response-এর মতো 
+আরও অনেক ধাপ থাকতে পারে। এগুলো আমরা পরবর্তী lessons-এ বিস্তারিত শিখব।
+
+
+Client এবং Server কি আলাদা ধরনের Computer?
+না। এটি খুবই গুরুত্বপূর্ণ।
+
+Client এবং Server মূলত কোনো hardware-এর নাম নয়; এগুলো একটি communication-এর role।একটি সাধারণ laptop একই সময়ে:
+- অন্য server থেকে webpage চাইলে Client।
+- নিজের computer থেকে কোনো অন্য device-কে file serve করলে Server।
+অর্থাৎ, একটি device একই সময়ে Client এবং Server—দুই ভূমিকাতেই থাকতে পারে।
+
+
+
+Knowledge Check — তোমার Understanding যাচাই
+এখনই পরবর্তী Lesson-এ যাব না। আগে এই প্রশ্নগুলোর উত্তর দাও। মুখস্থ উত্তর নয়, নিজের understanding দিয়ে উত্তর দেওয়ার চেষ্টা করবে।
+Lesson 01 Assessment
+
+1. একটি laptop কি একই সময়ে Client এবং Server হতে পারে?
+
+    1. না, একটি device শুধু একটি role পালন করতে পারে
+    2. হ্যাঁ, communication context অনুযায়ী
+    3. শুধু Linux-এ সম্ভব
+    4. শুধু dedicated server-এ সম্ভব
+
+Client ও Server hardware-এর পরিচয় নয়, communication-এর role।
+
+
+
+2. একটি Browser যখন Django API-তে request পাঠায়, তখন Browser কী?
+
+    1. Server
+    2. Database
+    3. Client
+    4. Router
+
+
+Browser এখানে service requester, তাই Client।
+
+
+
+3. Client-Server architecture-এ Database Server-এর ভূমিকা কী হতে পারে?
+
+    1. Data store এবং retrieve করা
+    2. Browser render করা
+    3. Internet connection তৈরি করা
+    4. IP address তৈরি করা
+
+Database Server data storage ও retrieval service প্রদান করে।
+
+
+
+4. Networking-এর মাধ্যমে আলাদা আলাদা server-এ কাজ ভাগ করে দেওয়ার ধারণাকে কী বলা হয়?
+
+1. Formatting
+2. Distributed Computing
+3. Compilation
+4. Serialization
+
+Distributed Computing-এ একাধিক computing node মিলে কাজ করে।
