@@ -1,0 +1,123 @@
+                                ```Lesson 02 — Network Types & Network Infrastructure
+
+Part 1: Types of Computer Networks
+Network-কে সাধারণত তার geographical coverage বা coverage area অনুযায়ী কয়েকটি ভাগে ভাগ করা হয়।
+প্রথমে চারটি গুরুত্বপূর্ণ network type বুঝি।
+
+1. PAN — Personal Area Network
+এটি সাধারণত একজন ব্যক্তির আশেপাশের অল্প দূরত্বের device-গুলোর মধ্যে communication তৈরি করে।
+
+উদাহরণ:
+- Smartphone থেকে Bluetooth Earbuds।
+- Laptop থেকে Wireless Mouse।
+- Smartphone থেকে Smartwatch।
+- Bluetooth File Transfer।
+
+এখানে সাধারণত Bluetooth, USB এবং অন্যান্য short-range communication technology ব্যবহার করা হয়।
+
+Backend Engineering Connection:
+PAN সরাসরি backend infrastructure-এর মূল অংশ না হলেও IoT (Internet of Things), wearable devices এবং edge computing-এর ক্ষেত্রে 
+এর ধারণা কাজে আসে।
+
+2. LAN — Local Area Network
+একটি সীমিত geographical area-এর মধ্যে একাধিক device-কে connect করে যে network তৈরি হয়, তাকে LAN বলে।
+
+উদাহরণ:
+- একটি Office Network।
+- একটি University Computer Lab।
+- একটি বাসার Wi-Fi network।
+- একটি Data Center-এর internal network।
+LAN সাধারণত Ethernet cable অথবা Wi-Fi-এর মাধ্যমে তৈরি হয়।
+
+একটি বাস্তব উদাহরণ:
+
+ধরো, একটি software company-এর অফিসে রয়েছে:
+- ৩০টি Developer Computer
+- ৫টি Server
+- ২টি Network Printer
+- ১টি Network Switch
+- ১টি Router
+এই device-গুলো একটি internal LAN-এর মাধ্যমে communicate করতে পারে।
+
+এখন গুরুত্বপূর্ণ প্রশ্ন:
+
+একটি LAN-এর মধ্যে থাকা একটি computer কীভাবে অন্য computer-এ data পাঠায়?
+এই প্রশ্নের উত্তর আমরা MAC Address, Ethernet, Switch এবং ARP শেখার সময় বিস্তারিত বুঝব।
+
+3. MAN — Metropolitan Area Network
+একটি শহর বা metropolitan area জুড়ে একাধিক LAN-কে connect করে যে network তৈরি হয়, তাকে MAN বলে।
+
+উদাহরণ:
+
+ধরো, একটি ব্যাংকের ঢাকায় ১৫টি branch রয়েছে।
+প্রতিটি branch-এর নিজস্ব LAN আছে। এই branch-গুলোর network-কে শহরব্যাপী connect করার জন্য MAN-ধরনের network architecture ব্যবহার করা যেতে পারে।
+সাধারণত fiber-optic infrastructure এবং service provider network ব্যবহার হতে পারে।
+
+4. WAN — Wide Area Network
+বৃহৎ geographical area জুড়ে বিভিন্ন LAN এবং MAN-কে connect করে যে network তৈরি হয়, তাকে WAN বলে।
+এটি একটি দেশ, একাধিক দেশ অথবা পৃথিবীব্যাপী বিস্তৃত হতে পারে।
+
+উদাহরণ:
+- একটি multinational company's global network।
+- বিভিন্ন দেশের ব্যাংকের network।
+- Internet।
+সবচেয়ে গুরুত্বপূর্ণ বিষয়:
+
+Internet হলো সবচেয়ে বড় এবং পরিচিত example of a global interconnected network, কিন্তু সব WAN Internet নয়। Private WAN-ও থাকতে পারে।
+
+Part 2: PAN vs LAN vs MAN vs WAN
+এবার চারটি network একসঙ্গে তুলনা করি।
+Network	Coverage	Example
+PAN	ব্যক্তিগত পরিসর	Bluetooth
+LAN	Room / Building / Campus	Office Network
+MAN	City	City-wide network
+WAN	Country / Global	Global corporate network
+
+
+Part 3: Internet vs Intranet vs Extranet
+এখন আমরা আরেকটি অত্যন্ত গুরুত্বপূর্ণ distinction শিখব।
+
+এই তিনটি শব্দ দেখতে কাছাকাছি হলেও তাদের purpose আলাদা।
+
+1. Internet
+Internet হলো একটি global network of interconnected networks।
+
+পৃথিবীর বিভিন্ন network-কে standard communication protocols-এর মাধ্যমে connect করে Internet তৈরি হয়েছে।
+
+উদাহরণ:
+- Google
+- Facebook
+- YouTube
+- তোমার Django REST API
+- Cloud-hosted database services
+যখন তুমি browser-এ কোনো public website access করো, সাধারণত Internet ব্যবহার করছ।
+
+
+2. Intranet
+Intranet হলো একটি organization-এর private internal network, যেখানে নির্দিষ্ট authorized সদস্যরা access পায়।
+
+উদাহরণ:
+
+একটি ব্যাংকের internal employee portal।
+
+সেখানে employee-রা:
+- Salary information দেখতে পারে।
+- Internal documents access করতে পারে।
+- Office attendance দিতে পারে।
+- Internal applications ব্যবহার করতে পারে।
+সাধারণ public Internet user এই system access করতে পারে না।
+
+3. Extranet
+Extranet হলো একটি private organizational network বা system-এর controlled অংশ, যা নির্দিষ্ট external parties-এর সঙ্গে share করা হয়।
+
+উদাহরণ:
+
+একটি pharmaceutical company তার distributor-দের জন্য একটি portal তৈরি করল।
+
+Distributor-রা সেখানে:
+- Product availability দেখতে পারে।
+- Order দিতে পারে।
+- Invoice দেখতে পারে।
+- Delivery status দেখতে পারে।
+কিন্তু তারা company-এর internal HR বা financial system access করতে পারবে না।
+
